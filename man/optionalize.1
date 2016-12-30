@@ -1,0 +1,27 @@
+.TH optionalize 1 "10 Sep 2016"
+.SH NAME
+optionalize \- generate getopts code
+.SH SYNOPSIS
+.B optionalize
+[OPTIONS] \fIfile\fR
+.SH DESCRIPTION
+.B optionalize
+creates a code which accepts command-line options using getopts based on a 
+minimum-length description of the options to be supported, which are provided
+in \fIfile\fR.  The generated code may be a C code, a BaSH shell script, a 
+Python script, or a manual page.
+.SH OPTIONS
+.TP
+.BR \-p ", " \-\-python
+translate into Python
+.TP
+.BR \-b ", " \-\-bash
+translate into BaSH script
+.TP
+.BR \-c ", " \-\-C
+translate into C language
+.TP
+.BR \-m ", " \-\-man
+translate into manual page
+.SH AUTHOR
+Written by Dominic Dimico <dominic.dimico@gmail.com>.
