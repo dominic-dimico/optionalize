@@ -1,0 +1,4 @@
+int    number      n   number       an integer argument
+bool   flag        f   flag         a flag to be set
+float  decimal     d   decimal      a floating-point argument
+char*  string      s   string       a string argument

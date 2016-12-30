@@ -1,0 +1,14 @@
+The optionalize program is a simple tool for generating getopts code and parts
+of manual pages.  It makes it very easy to create programs which accept options
+via the command line.  In the case of the C language, ten lines of C code are
+generated for every one line of an optionalize configuration file. 
+
+To install optionalize, clone it from GitHub, then follow the instructions in
+the INSTALL file:
+
+  git clone http://github.com/dominic-dimico/optionalize.git
+
+Optionalize requires a plain-text options description file (.opt) giving a
+minimum-length description of options to be supported.  An example is provided
+in the examples/ folder of this source package.  See the manual page
+optionalize(1) for details on its invocation.
