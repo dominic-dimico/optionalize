@@ -268,45 +268,53 @@ int main (int argc, char **argv) {
   } else if (python) {
 
  
-   /*
-   printf("import getopt, sys");
+   printf("\nimport getopt, sys\n");
 
-   printf("def main():");
-   printf(" try:");
+   printf("\ndef main():");
+   printf("\n  try:");
 
-   printf("  opts, args = getopt.getopt(sys.argv[1:], \"");
-   //ho:v
-   printf(\", [");
-   //"help", "output=
-   printf("\"])");
+   printf("\n    opts, args = getopt.getopt(");
+   printf("\n      args=sys.argv[1:], ");
+   printf("\n      shortopts=\"");
 
-   printf(" except getopt.GetoptError as err:");
-   printf("  print str(err)");
-   printf("  usage()");
-   printf("  sys.exit(2)");
-
-   // declare
-
-   printf(" for o, a in opts:");
-
-   printf("  if o == "-v":");
-   printf("   verbose = True");
-
-   // loop
    for (i=0; i<num; i++) {
-     printf("  elif o in (\"%s\", \"--%s\"):", 
+      printf("%s", options[i][2]);
+      if (0!=strcmp(options[i][0], "bool"))
+         printf(":");
+   }
+   printf("\"");
+   printf("\n     longopts=[");
+   for (i=0; i<num; i++) {
+     printf("\"%s", options[i][3]);
+     if (0!=strcmp(options[i][0], "bool"))
+       printf("=");
+     printf("\"");
+     if (i<num-1) printf(",");
+     else         printf("]");
+   }
+   printf("\n    );");
+
+   printf("\n  except getopt.GetoptError as err:");
+   printf("\n    print str(err)");
+   printf("\n    usage()");
+   printf("\n    sys.exit(2)");
+
+   printf("\n  for option, value in opts:");
+
+   printf("\n    if option == \"-v\":");
+   printf("\n       verbose = True");
+
+   for (i=0; i<num; i++) {
+     printf("\n    elif option in (\"%s\", \"--%s\"):", 
        options[i][2], options[i][3]);
-     printf("   %s = a", options[i][1]);
+     printf("\n       %s = value", options[i][1]);
    }
 
-   printf("        else:");
-   printf("            assert False, "unhandled option"");
-   printf("    # ...");
-   printf("");
-   printf("if __name__ == "__main__":");
-   printf("    main()");
-
-   */
+   printf("\n    else:");
+   printf("\n       assert False, \"unhandled option\"");
+   printf("\n");
+   printf("\n    if __name__ == \"__main__\":");
+   printf("\n       pass");
 
 
   } else if (man) {
@@ -327,7 +335,7 @@ int main (int argc, char **argv) {
      );
 
    printf(".SH AUTHOR\n");
-   printf("Written by Dominic Dimico <dominic.dimico@gmail.com>.\n");
+   printf("Written by Dominic DiMico <dominic.dimico@gmail.com>.\n");
 
   }
 

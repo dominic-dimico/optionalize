@@ -1,3 +1,2 @@
-SUBDIRS=src
-
-man1_MANS = man/optionalize.1.gz
+SUBDIRS=src man
+AM_CFLAGS = -Wall -02
