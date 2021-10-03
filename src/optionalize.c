@@ -282,8 +282,8 @@ int main (int argc, char **argv) {
       if (0!=strcmp(options[i][0], "bool"))
          printf(":");
    }
-   printf("\"");
-   printf("\n     longopts=[");
+   printf("\",");
+   printf("\n      longopts=[");
    for (i=0; i<num; i++) {
      printf("\"%s", options[i][3]);
      if (0!=strcmp(options[i][0], "bool"))
@@ -295,9 +295,9 @@ int main (int argc, char **argv) {
    printf("\n    );");
 
    printf("\n  except getopt.GetoptError as err:");
-   printf("\n    print str(err)");
-   printf("\n    usage()");
-   printf("\n    sys.exit(2)");
+   printf("\n    print(str(err));");
+   printf("\n    usage();");
+   printf("\n    sys.exit(2);\n");
 
    printf("\n  for option, value in opts:");
 
